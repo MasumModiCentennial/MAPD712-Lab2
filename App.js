@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
@@ -8,13 +8,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      
       <StatusBar style="auto" />
+
       <TextInput style={styles.endit}
         onChangeText = {text=>onChangeText(text)}
         placeholder = "Type something" 
-        text = {value}
-      />
+        ref={input => { this.textInput = input }}
+        text = {value} />
+    
       <Text style={styles.text}> {value} </Text>
+    
+      <Button style={styles.button} title="Clear" color="red" onPress={()=>this.textInput.clear()}/>
+
     </View>
   );
 }
@@ -34,6 +40,12 @@ const styles = StyleSheet.create({
      width: '100%',
   },
   text:{
+    margin: 20,
+  },
+  //Why not working
+  button:{
+    backgroundColor: 'red',
+    borderRadius:10,
     marginTop: 20,
   }
 });
