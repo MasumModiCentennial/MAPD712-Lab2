@@ -11,7 +11,6 @@ export default function App() {
       <StatusBar style="auto" />
       <TextInput style={styles.endit}
         onChangeText = {text=>onChangeText(text)}
-        clearTextOnFocus = {true}
         placeholder = "Type something" 
         text = {value}
       />
